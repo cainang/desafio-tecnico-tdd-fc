@@ -79,3 +79,9 @@ describe("Property Entity", () => {
     expect(property.isAvailable(dateRange2)).toBe(false);
   });
 });
+
+it("atributo basePricePerNight deve ter obrigatoriamente um valor maior que 0", () => {
+  expect(
+    () => new Property("1", "Casa de praia", "Uma bela casa na praia", 4, -1)
+  ).toThrow("O preço por noite deve ser maior que zero");
+});
